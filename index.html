@@ -1,0 +1,638 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>GliderAlive — Breathe • Move • Renew</title>
+    <link rel="stylesheet" href="assets/style.css">
+    <meta name="description"
+        content="GliderAlive offers uplifting online & studio classes—yoga, breathwork, and mindful movement—to help you feel lighter every day." />
+
+    <!-- Tailwind -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                container: { center: true, padding: { DEFAULT: "1rem", lg: "2rem" } },
+                extend: {
+                    colors: {
+                        ink: "#0f172a",
+                        fog: "#F8FBFF",
+                        mint: "#10b981",
+                        sea: "#38bdf8",
+                        lilac: "#a78bfa",
+                        sand: "#F1F5F9",
+                        dark: "#0b1220"
+                    },
+                    boxShadow: {
+                        glass: "0 10px 30px rgba(2,6,23,.15)",
+                        soft: "0 6px 20px rgba(2,6,23,.12)"
+                    },
+                    keyframes: {
+                        floaty: { '0%,100%': { transform: 'translateY(0)' }, '50%': { transform: 'translateY(-10px)' } }
+                    },
+                    animation: { floaty: 'floaty 6s ease-in-out infinite' }
+                }
+            }
+        }
+    </script>
+    <style>
+        :root {
+            scroll-behavior: smooth
+        }
+
+        .scroll-offset {
+            scroll-margin-top: 96px
+        }
+
+        .glass {
+            backdrop-filter: blur(10px);
+            background: linear-gradient(180deg, rgba(255, 255, 255, .7), rgba(255, 255, 255, .55));
+        }
+    </style>
+</head>
+
+<body class="bg-fog text-ink antialiased">
+
+    <!-- Header (text brand only) -->
+    <header id="hdr" class="sticky top-0 z-50 bg-white/80 backdrop-blur border-b border-slate-200">
+        <div class="container flex items-center justify-between py-3">
+            <a href="/" class="font-extrabold tracking-tight text-xl">GliderAlive</a>
+            <nav class="hidden md:flex items-center gap-6">
+                <a href="#about" class="hover:text-dark">About</a>
+                <a href="#programs" class="hover:text-dark">Programs</a>
+                <a href="#teachers" class="hover:text-dark">Instructors</a>
+                <a href="#schedule" class="hover:text-dark">Schedule</a>
+                <a href="#contact" class="rounded-xl bg-mint text-white px-4 py-2 font-semibold hover:opacity-90">Join a
+                    Class</a>
+            </nav>
+            <button id="mBtn"
+                class="md:hidden inline-flex w-10 h-10 items-center justify-center rounded-lg border border-slate-200"
+                aria-label="Menu">
+                <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" fill="none" viewBox="0 0 24 24"
+                    stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+                </svg>
+            </button>
+        </div>
+        <div id="mNav" class="md:hidden hidden border-t border-slate-200 bg-white">
+            <nav class="container py-3 grid gap-2">
+                <a href="#about" class="px-3 py-2 rounded-lg hover:bg-sand">About</a>
+                <a href="#programs" class="px-3 py-2 rounded-lg hover:bg-sand">Programs</a>
+                <a href="#teachers" class="px-3 py-2 rounded-lg hover:bg-sand">Instructors</a>
+                <a href="#schedule" class="px-3 py-2 rounded-lg hover:bg-sand">Schedule</a>
+                <a href="#contact" class="px-3 py-2 rounded-lg bg-mint text-white text-center font-semibold">Join a
+                    Class</a>
+            </nav>
+        </div>
+    </header>
+
+    <!-- HERO (New: text + floating collage; all Unsplash) -->
+    <section id="hero" class="relative overflow-hidden">
+        <div class="absolute inset-0 -z-10 bg-gradient-to-b from-[#0b1220] via-[#0b1220] to-[#0b1220]/85"></div>
+        <div class="absolute -left-24 -top-24 h-72 w-72 rounded-full bg-sea/20 blur-3xl"></div>
+        <div class="absolute -right-16 bottom-0 h-80 w-80 rounded-full bg-lilac/20 blur-3xl"></div>
+
+        <div class="container min-h-[70vh] md:min-h-[78vh] py-12 grid md:grid-cols-2 gap-10 items-center">
+            <!-- Copy -->
+            <div class="text-white">
+                <span class="inline-flex items-center gap-2 rounded-full bg-white/10 px-3 py-1 text-sm backdrop-blur">
+                    <span class="h-2 w-2 rounded-full bg-sea"></span> New: 7-Day Reset Journey
+                </span>
+                <h1 class="mt-4 text-4xl md:text-6xl font-extrabold leading-tight">
+                    Breathe deeper. <span class="text-sea">Move lighter.</span> Live brighter.
+                </h1>
+                <p class="mt-4 text-lg md:text-xl text-white/90">
+                    Guided yoga, mobility flows, and breathwork—live & on-demand—so you feel calm, strong, and clear.
+                </p>
+                <div class="mt-8 flex flex-wrap gap-3">
+                    <a href="#programs"
+                        class="rounded-xl bg-mint px-5 py-3 font-semibold text-white hover:opacity-90">Explore
+                        Programs</a>
+                    <a href="#schedule"
+                        class="rounded-xl border border-white/40 px-5 py-3 font-semibold text-white/90 hover:bg-white/10">View
+                        Schedule</a>
+                </div>
+                <div class="mt-8 grid grid-cols-3 gap-4 text-center">
+                    <div>
+                        <div class="text-2xl font-extrabold">700+</div>
+                        <div class="text-xs text-white/70">Home cooks & movers</div>
+                    </div>
+                    <div>
+                        <div class="text-2xl font-extrabold">120</div>
+                        <div class="text-xs text-white/70">Classes & sessions</div>
+                    </div>
+                    <div>
+                        <div class="text-2xl font-extrabold">48h</div>
+                        <div class="text-xs text-white/70">Avg. response</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Collage -->
+            <div class="grid grid-cols-2 gap-4">
+                <div class="col-span-1 space-y-4">
+                    <img src="https://images.unsplash.com/photo-1524863479829-916d8e77f114?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+                        class="h-44 w-full object-cover rounded-2xl shadow-glass animate-floaty" alt="Yoga sunrise">
+                    <img src="https://images.unsplash.com/photo-1506126613408-eca07ce68773?q=80&w=1200&auto=format&fit=crop"
+                        class="h-60 w-full object-cover rounded-2xl shadow-glass" alt="Calm studio">
+                </div>
+                <div class="col-span-1 space-y-4 translate-y-6">
+                    <img src="https://images.unsplash.com/photo-1571019614242-c5c5dee9f50b?q=80&w=1200&auto=format&fit=crop"
+                        class="h-60 w-full object-cover rounded-2xl shadow-glass" alt="Mobility work">
+                    <img src="https://images.unsplash.com/photo-1544367567-0f2fcb009e0b?q=80&w=1200&auto=format&fit=crop"
+                        class="h-44 w-full object-cover rounded-2xl shadow-glass animate-floaty" alt="Flow class">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About -->
+    <section id="about" class="scroll-offset py-16 md:py-20">
+        <div class="container grid md:grid-cols-2 gap-10 items-center">
+            <div>
+                <h2 class="text-3xl md:text-4xl font-extrabold">Our mission</h2>
+                <p class="mt-4 text-slate-700 leading-relaxed">
+                    GliderAlive helps humans move with ease. We combine thoughtful sequencing, breath-led pacing, and
+                    modern mobility work so you build strength without strain and calm without boredom.
+                </p>
+                <ul class="mt-6 space-y-3">
+                    <li class="flex gap-3"><span class="mt-1 h-2.5 w-2.5 rounded-full bg-mint"></span>Live classes +
+                        on-demand library</li>
+                    <li class="flex gap-3"><span class="mt-1 h-2.5 w-2.5 rounded-full bg-sea"></span>Beginner-friendly
+                        progressions</li>
+                    <li class="flex gap-3"><span class="mt-1 h-2.5 w-2.5 rounded-full bg-lilac"></span>Evidence-informed
+                        breathwork</li>
+                </ul>
+            </div>
+            <div class="glass rounded-3xl shadow-glass overflow-hidden">
+                <img src="https://images.unsplash.com/photo-1504754524776-8f4f37790ca0?q=80&w=1200&auto=format&fit=crop"
+                    alt="Studio" class="w-full h-[380px] object-cover">
+            </div>
+        </div>
+    </section>
+
+    <!-- Programs (all Unsplash) -->
+    <section id="programs" class="scroll-offset py-16 md:py-20 bg-white">
+        <div class="container">
+            <div class="flex items-end justify-between gap-4 mb-8">
+                <h2 class="text-3xl md:text-4xl font-extrabold">Programs built for real life</h2>
+                <a href="#contact" class="hidden md:inline-flex text-mint hover:underline font-semibold">Start today</a>
+            </div>
+
+            <div class="grid md:grid-cols-3 gap-6">
+                <article class="rounded-2xl border border-slate-100 shadow-soft overflow-hidden bg-white">
+                    <img src="https://images.unsplash.com/photo-1544367567-0f2fcb009e0b?q=80&w=1200&auto=format&fit=crop"
+                        alt="Vinyasa" class="h-52 w-full object-cover">
+                    <div class="p-5">
+                        <h3 class="font-semibold text-lg">Vinyasa Flow</h3>
+                        <p class="mt-1 text-sm text-slate-600">Dynamic sequences linking breath with movement—build heat
+                            and focus.</p>
+                        <ul class="mt-3 text-sm text-slate-600 space-y-1">
+                            <li>• 45–60 mins</li>
+                            <li>• All levels</li>
+                            <li>• Live + on-demand</li>
+                        </ul>
+                        <a href="#contact"
+                            class="mt-4 inline-block rounded-xl bg-mint text-white px-4 py-2 font-semibold">Join</a>
+                    </div>
+                </article>
+                <article class="rounded-2xl border border-slate-100 shadow-soft overflow-hidden bg-white">
+                    <img src="https://images.unsplash.com/photo-1613602025754-04e1b4a24156?q=80&w=722&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+                        alt="Yin" class="h-52 w-full object-cover">
+                    <div class="p-5">
+                        <h3 class="font-semibold text-lg">Yin & Restore</h3>
+                        <p class="mt-1 text-sm text-slate-600">Long holds + props to release tension and refill your
+                            energy reserves.</p>
+                        <ul class="mt-3 text-sm text-slate-600 space-y-1">
+                            <li>• 40–60 mins</li>
+                            <li>• Great for recovery</li>
+                            <li>• Guided breathwork</li>
+                        </ul>
+                        <a href="#contact"
+                            class="mt-4 inline-block rounded-xl bg-mint text-white px-4 py-2 font-semibold">Join</a>
+                    </div>
+                </article>
+                <article class="rounded-2xl border border-slate-100 shadow-soft overflow-hidden bg-white">
+                    <img src="https://images.unsplash.com/photo-1571019614242-c5c5dee9f50b?q=80&w=1200&auto=format&fit=crop"
+                        alt="Mobility" class="h-52 w-full object-cover">
+                    <div class="p-5">
+                        <h3 class="font-semibold text-lg">Core & Mobility</h3>
+                        <p class="mt-1 text-sm text-slate-600">Build resilient ranges of motion and power your posture
+                            from the center.</p>
+                        <ul class="mt-3 text-sm text-slate-600 space-y-1">
+                            <li>• 30–45 mins</li>
+                            <li>• Minimal equipment</li>
+                            <li>• Beginner-friendly</li>
+                        </ul>
+                        <a href="#contact"
+                            class="mt-4 inline-block rounded-xl bg-mint text-white px-4 py-2 font-semibold">Join</a>
+                    </div>
+                </article>
+            </div>
+        </div>
+    </section>
+
+    <!-- Instructors (Unsplash portraits) -->
+    <section id="teachers" class="scroll-offset py-16 md:py-20">
+        <div class="container">
+            <h2 class="text-3xl md:text-4xl font-extrabold mb-8">Meet your guides</h2>
+            <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
+                <div class="rounded-2xl bg-white border border-slate-100 shadow-soft overflow-hidden">
+                    <img src="https://images.unsplash.com/photo-1524504388940-b1c1722653e1?q=80&w=900&auto=format&fit=crop"
+                        class="h-52 w-full object-cover" alt="Rina">
+                    <div class="p-4">
+                        <div class="font-semibold">Rina Kapoor</div>
+                        <div class="text-sm text-slate-500">Vinyasa · Mobility</div>
+                    </div>
+                </div>
+                <div class="rounded-2xl bg-white border border-slate-100 shadow-soft overflow-hidden">
+                    <img src="https://images.unsplash.com/photo-1547425260-76bcadfb4f2c?q=80&w=900&auto=format&fit=crop"
+                        class="h-52 w-full object-cover" alt="Maya">
+                    <div class="p-4">
+                        <div class="font-semibold">Maya Jensen</div>
+                        <div class="text-sm text-slate-500">Yin · Breathwork</div>
+                    </div>
+                </div>
+                <div class="rounded-2xl bg-white border border-slate-100 shadow-soft overflow-hidden">
+                    <img src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?q=80&w=900&auto=format&fit=crop"
+                        class="h-52 w-full object-cover" alt="Arjun">
+                    <div class="p-4">
+                        <div class="font-semibold">Arjun Mehta</div>
+                        <div class="text-sm text-slate-500">Hatha · Beginners</div>
+                    </div>
+                </div>
+                <div class="rounded-2xl bg-white border border-slate-100 shadow-soft overflow-hidden">
+                    <img src="https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?q=80&w=900&auto=format&fit=crop"
+                        class="h-52 w-full object-cover" alt="Ishita">
+                    <div class="p-4">
+                        <div class="font-semibold">Ishita Williams</div>
+                        <div class="text-sm text-slate-500">Prenatal · Restore</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Weekly Schedule (expanded slots) -->
+    <section id="schedule" class="scroll-offset py-16 md:py-20 bg-white">
+        <div class="container">
+            <h2 class="text-3xl md:text-4xl font-extrabold mb-6">Weekly schedule</h2>
+            <div class="overflow-x-auto rounded-2xl border border-slate-200 bg-white shadow-soft">
+                <table class="min-w-[960px] w-full text-sm">
+                    <thead class="bg-sand text-slate-700">
+                        <tr>
+                            <th class="p-3 text-left">Time</th>
+                            <th class="p-3">Mon</th>
+                            <th class="p-3">Tue</th>
+                            <th class="p-3">Wed</th>
+                            <th class="p-3">Thu</th>
+                            <th class="p-3">Fri</th>
+                            <th class="p-3">Sat</th>
+                            <th class="p-3">Sun</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr class="border-t">
+                            <td class="p-3">6:00 AM</td>
+                            <td class="p-3">Meditation</td>
+                            <td class="p-3">—</td>
+                            <td class="p-3">Meditation</td>
+                            <td class="p-3">—</td>
+                            <td class="p-3">Meditation</td>
+                            <td class="p-3">Sun Salute</td>
+                            <td class="p-3">Meditation</td>
+                        </tr>
+                        <tr class="border-t">
+                            <td class="p-3">7:00 AM</td>
+                            <td class="p-3">Vinyasa</td>
+                            <td class="p-3">Yin</td>
+                            <td class="p-3">Mobility</td>
+                            <td class="p-3">Vinyasa</td>
+                            <td class="p-3">Yin</td>
+                            <td class="p-3">Restorative</td>
+                            <td class="p-3">Gentle Flow</td>
+                        </tr>
+                        <tr class="border-t">
+                            <td class="p-3">9:30 AM</td>
+                            <td class="p-3">Prenatal</td>
+                            <td class="p-3">Hatha</td>
+                            <td class="p-3">Core</td>
+                            <td class="p-3">Yin</td>
+                            <td class="p-3">Mobility</td>
+                            <td class="p-3">Community Flow</td>
+                            <td class="p-3">—</td>
+                        </tr>
+                        <tr class="border-t">
+                            <td class="p-3">12:30 PM</td>
+                            <td class="p-3">Lunch Express</td>
+                            <td class="p-3">Lunch Express</td>
+                            <td class="p-3">—</td>
+                            <td class="p-3">Lunch Express</td>
+                            <td class="p-3">—</td>
+                            <td class="p-3">Detox Stretch</td>
+                            <td class="p-3">—</td>
+                        </tr>
+                        <tr class="border-t">
+                            <td class="p-3">5:00 PM</td>
+                            <td class="p-3">Hatha</td>
+                            <td class="p-3">Mobility</td>
+                            <td class="p-3">Vinyasa</td>
+                            <td class="p-3">Yin</td>
+                            <td class="p-3">Core</td>
+                            <td class="p-3">Family Yoga</td>
+                            <td class="p-3">—</td>
+                        </tr>
+                        <tr class="border-t">
+                            <td class="p-3">6:30 PM</td>
+                            <td class="p-3">Mobility</td>
+                            <td class="p-3">Vinyasa</td>
+                            <td class="p-3">Yin</td>
+                            <td class="p-3">Hatha</td>
+                            <td class="p-3">Vinyasa</td>
+                            <td class="p-3">Sound Bath</td>
+                            <td class="p-3">—</td>
+                        </tr>
+                        <tr class="border-t">
+                            <td class="p-3">8:00 PM</td>
+                            <td class="p-3">Sleep Yoga</td>
+                            <td class="p-3">Sleep Yoga</td>
+                            <td class="p-3">Sleep Yoga</td>
+                            <td class="p-3">Sleep Yoga</td>
+                            <td class="p-3">Sleep Yoga</td>
+                            <td class="p-3">—</td>
+                            <td class="p-3">Wind Down</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <p class="text-xs text-slate-500 mt-3">* Hybrid classes (online + studio). Timings are IST.</p>
+        </div>
+    </section>
+
+    <!-- Benefits -->
+    <section id="benefits" class="py-16 md:py-20">
+        <div class="container">
+            <h2 class="text-3xl md:text-4xl font-extrabold text-center">Benefits you’ll feel</h2>
+            <div class="mt-8 grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
+                <div class="rounded-2xl bg-white border border-slate-100 p-6 shadow-soft">
+                    <div class="text-mint font-bold">01</div>
+                    <h3 class="mt-2 font-semibold text-lg">Ease & Mobility</h3>
+                    <p class="mt-2 text-slate-600">Gentle progressions restore ranges of motion and reduce everyday
+                        stiffness.</p>
+                </div>
+                <div class="rounded-2xl bg-white border border-slate-100 p-6 shadow-soft">
+                    <div class="text-mint font-bold">02</div>
+                    <h3 class="mt-2 font-semibold text-lg">Calm & Clarity</h3>
+                    <p class="mt-2 text-slate-600">Breath-led pacing relaxes your nervous system and improves focus.</p>
+                </div>
+                <div class="rounded-2xl bg-white border border-slate-100 p-6 shadow-soft">
+                    <div class="text-mint font-bold">03</div>
+                    <h3 class="mt-2 font-semibold text-lg">Strength that lasts</h3>
+                    <p class="mt-2 text-slate-600">Smart sequencing builds stability without strain or burnout.</p>
+                </div>
+                <div class="rounded-2xl bg-white border border-slate-100 p-6 shadow-soft">
+                    <div class="text-mint font-bold">04</div>
+                    <h3 class="mt-2 font-semibold text-lg">Better Sleep</h3>
+                    <p class="mt-2 text-slate-600">Wind-down practices cue deep rest and help you wake up refreshed.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials -->
+    <section id="testimonials" class="py-16 md:py-20 bg-white">
+        <div class="container">
+            <h2 class="text-3xl md:text-4xl font-extrabold text-center">Loved by our community</h2>
+            <div class="mt-8 grid md:grid-cols-3 gap-6">
+                <figure class="rounded-2xl p-6 bg-sand border border-slate-200 shadow-soft">
+                    <blockquote>“GliderAlive is the first program I’ve actually stuck with—clear cues and zero
+                        judgment.”</blockquote>
+                    <figcaption class="mt-3 text-sm text-slate-600">— Ekta R., Mumbai</figcaption>
+                </figure>
+                <figure class="rounded-2xl p-6 bg-sand border border-slate-200 shadow-soft">
+                    <blockquote>“The Yin sessions are magic for my sleep. I wake up looser and happier.”</blockquote>
+                    <figcaption class="mt-3 text-sm text-slate-600">— Vishant P., Delhi</figcaption>
+                </figure>
+                <figure class="rounded-2xl p-6 bg-sand border border-slate-200 shadow-soft">
+                    <blockquote>“Beginner-friendly but never boring. The mobility flows fixed my desk stiffness.”
+                    </blockquote>
+                    <figcaption class="mt-3 text-sm text-slate-600">— Sana K., Pune</figcaption>
+                </figure>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact -->
+    <section id="contact" class="scroll-offset py-16 md:py-20">
+        <div class="container grid md:grid-cols-2 gap-8 items-start">
+            <div>
+                <h2 class="text-3xl md:text-4xl font-extrabold">Get in touch</h2>
+                <p class="mt-3 text-slate-700">Have questions or need a class suggestion? We reply within one business
+                    day.</p>
+                <ul class="mt-4 text-sm text-slate-600 space-y-1">
+                    <li>✉️ hello@glideralive.site</li>
+                    <li>📍 1125 Willow Park Drive, Suite 300<br>
+  Columbus, OH 43215, United States</li>
+                </ul>
+            </div>
+
+            <form id="msgForm" class="bg-white rounded-2xl p-6 shadow-soft border border-slate-200">
+                <div class="grid sm:grid-cols-2 gap-4">
+                    <label class="block">
+                        <span class="text-sm font-medium">Name</span>
+                        <input type="text" required
+                            class="mt-1 w-full rounded-xl border border-slate-300 px-3 py-2 outline-none focus:ring-2 focus:ring-mint/30"
+                            placeholder="Your name">
+                    </label>
+                    <label class="block">
+                        <span class="text-sm font-medium">Email</span>
+                        <input type="email" required
+                            class="mt-1 w-full rounded-xl border border-slate-300 px-3 py-2 outline-none focus:ring-2 focus:ring-mint/30"
+                            placeholder="you@example.com">
+                    </label>
+                </div>
+                <label class="block mt-4">
+                    <span class="text-sm font-medium">Message</span>
+                    <textarea rows="4" required
+                        class="mt-1 w-full rounded-xl border border-slate-300 px-3 py-2 outline-none focus:ring-2 focus:ring-mint/30"
+                        placeholder="How can we help?"></textarea>
+                </label>
+                <button class="mt-4 w-full rounded-xl bg-mint text-white font-semibold px-4 py-3 hover:opacity-90"
+                    type="submit">Send Message</button>
+                <p id="formMsg" class="hidden mt-3 text-sm text-mint font-medium">Thanks! We’ve received your message.
+                </p>
+            </form>
+        </div>
+    </section>
+
+    <!-- Footer (text brand only) -->
+    <footer class="mt-20 bg-gradient-to-b from-[#0b1220] via-[#0b1220] to-[#0b1220]/95 text-white/90">
+        <!-- CTA band -->
+        <div class="container py-10">
+            <div
+                class="rounded-2xl bg-white/5 ring-1 ring-white/10 p-6 md:p-8 flex flex-col md:flex-row md:items-center md:justify-between gap-6">
+                <div>
+                    <h3 class="text-2xl md:text-3xl font-extrabold">Move lighter. Sleep deeper. Feel brighter.</h3>
+                    <p class="mt-1 text-white/70">Join 5k+ members getting weekly class picks and breathwork tips.</p>
+                </div>
+                <form id="nlForm" class="w-full md:w-auto flex gap-2">
+                    <input type="email" required placeholder="Email address"
+                        class="w-full md:w-72 rounded-xl border-0 px-3 py-3 text-ink" />
+                    <button class="rounded-xl bg-[#38bdf8] px-4 py-3 font-semibold text-[#0b1220]">Subscribe</button>
+                </form>
+            </div>
+            <p id="nlMsg" class="hidden mt-2 text-sm text-[#38bdf8]">Subscribed! 🎉</p>
+        </div>
+
+        <!-- Links -->
+        <div class="border-t border-white/10">
+            <div class="container py-12 grid sm:grid-cols-2 lg:grid-cols-4 gap-10">
+                <div>
+                    <div class="text-lg font-extrabold">GliderAlive</div>
+                    <p class="mt-3 text-white/70">
+                        Modern yoga and mindful mobility. Live + on-demand sessions that fit real life.
+                    </p>
+                </div>
+
+                <div>
+                    <h4 class="font-semibold text-white mb-3">Programs</h4>
+                    <ul class="space-y-2">
+                        <li><a href="#programs" class="hover:underline">Vinyasa Flow</a></li>
+                        <li><a href="#programs" class="hover:underline">Yin & Restore</a></li>
+                        <li><a href="#programs" class="hover:underline">Core & Mobility</a></li>
+                        <li><a href="#schedule" class="hover:underline">Weekly Schedule</a></li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h4 class="font-semibold text-white mb-3">Company</h4>
+                    <ul class="space-y-2">
+                        <li><a href="#about" class="hover:underline">About</a></li>
+                        <li><a href="#teachers" class="hover:underline">Instructors</a></li>
+                        <li><a href="#contact" class="hover:underline">Contact</a></li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h4 class="font-semibold text-white mb-3">Legal</h4>
+                    <ul class="space-y-2">
+                        <li><a href="#" onclick="openPolicy('terms');return false;" class="hover:underline">Terms &
+                                Conditions</a></li>
+                        <li><a href="#" onclick="openPolicy('privacy');return false;" class="hover:underline">Privacy
+                                Policy</a></li>
+                    </ul>
+                    <div class="mt-4 text-sm text-white/70">
+                        hello@glideralive.site<br />1125 Willow Park Drive, Suite 300<br>
+  Columbus, OH 43215, United States
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Bottom bar -->
+        <div class="border-t border-white/10">
+            <div
+                class="container py-4 flex flex-col md:flex-row gap-3 md:gap-6 items-center justify-between text-sm text-white/60">
+                <div>&copy; <span id="y"></span> GliderAlive. All rights reserved.</div>
+                <div class="flex items-center gap-4">
+                    <a href="#hero" class="hover:text-white flex items-center gap-2">Back to top
+                        <svg class="w-4 h-4" viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M12 4l6 6h-4v10H10V10H6l6-6z" />
+                        </svg>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+
+    <!-- Policy Drawer -->
+    <div id="policyDrawer" class="fixed inset-0 z-[60] hidden">
+        <div class="absolute inset-0 bg-black/40" onclick="closePolicy()"></div>
+        <div class="absolute right-0 top-0 h-full w-full sm:w-[520px] bg-white shadow-2xl p-6 overflow-y-auto">
+            <div class="flex items-center justify-between">
+                <h3 id="policyTitle" class="text-xl font-bold">Policy</h3>
+                <button class="p-2 rounded-lg hover:bg-sand" onclick="closePolicy()">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24"
+                        stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M6 18L18 6M6 6l12 12" />
+                    </svg>
+                </button>
+            </div>
+            <div id="policyBody" class="mt-4 space-y-3 text-slate-700 text-sm leading-relaxed"></div>
+        </div>
+    </div>
+
+    <!-- JS -->
+    <script>
+        // mobile nav
+        const mBtn = document.getElementById('mBtn');
+        const mNav = document.getElementById('mNav');
+        mBtn?.addEventListener('click', () => mNav.classList.toggle('hidden'));
+
+        // smooth scroll with sticky header offset
+        const hdr = document.getElementById('hdr');
+        const getOffset = () => hdr.offsetHeight || 80;
+        function go(e) {
+            const href = this.getAttribute('href'); if (!href || !href.startsWith('#')) return;
+            const t = document.querySelector(href); if (!t) return;
+            e.preventDefault();
+            const y = t.getBoundingClientRect().top + window.pageYOffset - (getOffset() + 6);
+            window.scrollTo({ top: y, behavior: 'smooth' });
+            mNav?.classList.add('hidden');
+        }
+        document.querySelectorAll('a[href^="#"]').forEach(a => a.addEventListener('click', go));
+        window.addEventListener('load', () => {
+            if (location.hash) {
+                setTimeout(() => {
+                    const t = document.querySelector(location.hash); if (t) { window.scrollTo({ top: t.getBoundingClientRect().top + window.pageYOffset - (getOffset() + 6) }); }
+                }, 40);
+            }
+        });
+
+        // simple forms
+        document.getElementById('msgForm')?.addEventListener('submit', e => {
+            e.preventDefault(); document.getElementById('formMsg').classList.remove('hidden'); e.target.reset();
+        });
+        document.getElementById('nlForm')?.addEventListener('submit', e => {
+            e.preventDefault(); document.getElementById('nlMsg').classList.remove('hidden'); e.target.reset();
+        });
+        document.getElementById('y').textContent = new Date().getFullYear();
+
+        // policies
+        const POLICIES = {
+            terms: {
+                title: "Terms & Conditions", body: [
+                    "Use of this website constitutes acceptance of these terms.",
+                    "Class times and instructors may change without notice.",
+                    "All brand names belong to their respective owners.",
+                    "For support, contact hello@glideralive.site."
+                ]
+            },
+            privacy: {
+                title: "Privacy Policy", body: [
+                    "We collect basic contact information when you submit forms.",
+                    "Data is used to respond to inquiries and improve our services.",
+                    "You can request deletion at any time via email.",
+                    "We do not sell your personal information."
+                ]
+            }
+        };
+        function openPolicy(key) {
+            const d = document.getElementById('policyDrawer'),
+                t = document.getElementById('policyTitle'),
+                b = document.getElementById('policyBody'),
+                p = POLICIES[key] || { title: "Policy", body: ["Content not found."] };
+            t.textContent = p.title; b.innerHTML = p.body.map(x => `<p>${x}</p>`).join("");
+            d.classList.remove('hidden'); document.body.style.overflow = 'hidden';
+        }
+        function closePolicy() { document.getElementById('policyDrawer').classList.add('hidden'); document.body.style.overflow = ''; }
+        window.openPolicy = openPolicy; window.closePolicy = closePolicy;
+    </script>
+    <script src="assets/script.js"></script>
+</body>
+
+</html>

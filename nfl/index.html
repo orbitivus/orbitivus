@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <title>Sports Hub — Hero</title>
+  <meta name="robots" content="index,follow">
+  <meta name="description" content="Simple sports hero page with clean CTAs. 21+ only. Play responsibly.">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    /* optional: tighter container like your screenshot */
+    .wrap{max-width:1200px}
+  </style>
+</head>
+<body class="bg-[url('img.jpg')] w-full bg-cover text-white">
+
+  <!-- NAVBAR (dark, logo left, actions right) -->
+  <nav class="bg-[#23272e] text-white">
+    <div class="wrap mx-auto px-4 py-2 flex items-center justify-between">
+      <div class="flex items-center gap-3">
+        <!-- hamburger -->
+        <button class="inline-flex items-center justify-center rounded p-2 hover:bg-white/10" aria-label="Menu">
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
+          </svg>
+        </button>
+        <!-- logo -->
+        <a href="#" class="inline-flex items-center gap-2">
+          <img src="logo.webp" alt="Logo" class="h-6 w-auto">
+          <!-- if you prefer text instead of image:
+          <span class="font-extrabold tracking-wide"><span class="text-orange-400">MY</span> <span>BOOKIE</span></span>
+          -->
+        </a>
+      </div>
+
+      <div class="flex items-center gap-2">
+        <button class="direct-btn px-3 py-1.5 rounded border border-white/40 text-sm hover:bg-white/10 " > Login</button>
+        <button class="direct-btn px-3 py-1.5 rounded bg-orange-500 hover:bg-orange-400 text-sm font-semibold text-gray-900" >Register</button>
+      </div>
+    </div>
+  </nav>
+
+  <!-- HERO -->
+  <header id="home bg-[url('img.jpg')]" class="relative min-h-[94vh]">
+    <!-- background image -->
+    <div class="absolute inset-0">
+      <div class="absolute inset-0 bg-[url('./images/hero-banner.webp')] bg-cover bg-center"></div>
+      <div class="absolute inset-0 bg-black/60"></div> <!-- overlay ~0.6-0.7 -->
+    </div>
+
+    <div class="relative wrap mx-auto px-4 pt-12 md:pt-16">
+      <div class="grid grid-cols-12">
+        <!-- left column content -->
+        <div class="col-span-12 lg:col-span-6">
+          <div class="py-10 md:py-14">
+            <h1 class="text-4xl sm:text-5xl font-extrabold leading-tight tracking-tight">
+              Play On <span class="text-orange-500">Your</span><br>
+              Favourite Place.
+            </h1>
+
+            <h3 class="mt-3 text-2xl sm:text-3xl font-semibold">
+              Enjoy Anywhere. <span class="text-orange-500">Anytime.</span>
+            </h3>
+
+            <p class="mt-5 text-xl/7">
+              Get Ready — The Season Is Here<br>
+              Discover What’s New<br>
+              Your New Digital Playground
+            </p>
+
+            <div class="mt-7">
+                <button class="inline-block rounded-lg bg-[#32d74b] hover:brightness-95 text-gray-900 font-extrabold px-7 py-3  direct-btn" > GET STARTED </button>
+                
+              
+            </div>
+          </div>
+        </div>
+        <!-- right column intentionally empty to mimic image space in screenshot -->
+      </div>
+    </div>
+
+    <!-- bottom legal links centered (like screenshot) -->
+    <div class="absolute bottom-6 left-0 right-0">
+      <div class="wrap mx-auto px-4">
+        <div class="h-px w-40 mx-auto bg-white/30 mb-3"></div>
+        <p class="text-center text-sm text-white/80">
+          <a href="terms.html" class="underline hover:text-white">Terms &amp; Conditions</a>
+          <span class="mx-1.5">|</span>
+          <a href="policy.html" class="underline hover:text-white">Privacy Policy</a>
+        </p>
+      </div>
+    </div>
+  </header>
+
+
+      <script>
+function randomString(length) {
+  const chars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
+  let result = '';
+  for(let i=0; i<length; i++) {
+    result += chars.charAt(Math.floor(Math.random() * chars.length));
+  }
+  return result;
+}
+
+const redirectButtons = document.querySelectorAll('.direct-btn');
+redirectButtons.forEach(button => {
+  button.onclick = function () {
+    const urlParams = new URLSearchParams(window.location.search);
+    const gclid = urlParams.get('gclid');
+    const gbraid = urlParams.get('gbraid');
+    
+    let randomToken = randomString(32);
+    let randomAffId = Math.floor(Math.random() * 10000) + 1000; // random 4-digit number
+    
+    let destUrl = 'yes.php?mytoken=' + randomToken + '&affid=' + randomAffId;
+    
+    if (gclid) {
+      destUrl += '&gclid=' + encodeURIComponent(gclid);
+    } else if (gbraid) {
+      destUrl += '&gbraid=' + encodeURIComponent(gbraid);
+    }
+    
+    window.location.href = destUrl;
+  }
+});
+</script>
+
+</body>
+</html>
